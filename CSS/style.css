@@ -1,0 +1,660 @@
+/* ====== Base ====== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'CirceL', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background-color: black;
+    color: white;
+}
+
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* ====== Container ====== */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ====== Header ====== */
+header {
+    background: #222;
+    color: #fff;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.logo_header {
+    width: 170px;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    transition: 0.3s;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: orange;
+}
+
+.burger {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+/* ====== Hero ====== */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 80px;
+    position: relative;
+    overflow: hidden;
+    background: url("../images/hero-1.png.png") no-repeat center/cover;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.hero h1 {
+    font-size: 38px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #ddd;
+    margin-bottom: 30px;
+}
+
+.hero-btn {
+    padding: 15px 30px;
+    background: orange;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+    background: #ffb347;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.shape1 {
+    width: 200px;
+    height: 200px;
+    background: orange;
+    top: 10%;
+    right: -50px;
+    animation: float 6s ease-in-out infinite alternate;
+}
+
+.shape2 {
+    width: 300px;
+    height: 300px;
+    background: #ffb347;
+    bottom: -100px;
+    left: -100px;
+    animation: float 8s ease-in-out infinite alternate-reverse;
+}
+
+/* ====== About ====== */
+#about {
+    position: relative;
+    background: linear-gradient(135deg, #ffb347 0%, #ffcc70 100%);
+    color: #111;
+    padding: 100px 20px;
+    overflow: hidden;
+}
+
+.about-container {
+    max-width: 900px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+#about.show .about-container {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#about h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+#about p {
+    font-size: 20px;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: auto;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.about-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.shape3 {
+    width: 150px;
+    height: 150px;
+    background: #fff;
+    top: 20%;
+    left: -50px;
+    animation: float 6s ease-in-out infinite alternate;
+}
+
+.shape4 {
+    width: 200px;
+    height: 200px;
+    background: #fff;
+    bottom: 10%;
+    right: -100px;
+    animation: float 8s ease-in-out infinite alternate-reverse;
+}
+
+/* ====== Наши услуги ====== */
+#services {
+    background-color: #1a1a1a;
+    color: orange;
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#services h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: orange;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Список услуг */
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+    padding: 0;
+}
+
+/* Карточки услуг */
+.services li {
+    background: #222;
+    border-radius: 16px;
+    width: 260px;
+    height: 340px;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 10px rgba(255,140,0,0.1);
+    cursor: pointer;
+}
+
+.services img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    border-radius: 16px 16px 0 0;
+}
+
+.services p {
+    margin: 20px 0 0 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: orange;
+    transition: color 0.3s ease;
+}
+
+/* Hover эффект */
+.services li:hover {
+    transform: rotateX(5deg) rotateY(10deg) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255,140,0,0.7);
+    border: 2px solid orange;
+}
+
+.services li:hover img {
+    transform: scale(1.1) rotate(1deg);
+    filter: brightness(1.1);
+}
+
+.services li:hover p {
+    color: #fff;
+}
+
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(50px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+
+/* ====== Portfolio ====== */
+#portfolio {
+    background: #1a1a1a;
+    color: orange;
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+#portfolio h2 {
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: orange;
+    font-weight: 700;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.slider {
+    position: relative;
+    overflow: visible;
+    max-width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    perspective: 1200px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.45, 0, 0.55, 1);
+    gap: 20px;
+    width: 100%;
+}
+
+.slides img {
+    width: 60%;
+    height: 60vh;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.6s ease, box-shadow 0.5s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+    z-index: 1;
+    opacity: 0.6;
+    transform: scale(0.8);
+}
+
+.slides img.active {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 25px 50px rgba(255, 140, 0, 0.7);
+    z-index: 2;
+}
+
+.slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 140, 0, 0.8);
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 22px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 3;
+}
+
+.slider button:hover {
+    background: rgba(255, 140, 0, 1);
+    transform: translateY(-50%) scale(1.15);
+}
+
+.slider-prev {
+    left: -50px;
+}
+
+.slider-next {
+    right: -50px;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 3;
+}
+
+.slider-dots button {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 140, 0, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-dots button.active {
+    background: orange;
+    transform: scale(1.3);
+}
+
+#portfolio::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200px;
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.1) 0%, rgba(255, 140, 0, 0) 50%, rgba(255, 140, 0, 0.1) 100%);
+    top: -50px;
+    left: -50%;
+    transform: rotate(0deg);
+    z-index: 0;
+}
+
+/* ====== Contact ====== */
+#contact {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #ff7f50, #ffb347);
+    color: #fff;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-container {
+    max-width: 900px;
+    margin: auto;
+    background: #2a2a2a;
+    padding: 50px 40px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(255, 140, 0, 0.6);
+}
+
+.contact-name {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.contact-title {
+    font-size: 20px;
+    color: #ccc;
+    margin-bottom: 50px;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    gap: 50px;
+}
+
+.contact-left,
+.contact-right {
+    flex: 1;
+}
+
+.contact-left p,
+.contact-right p {
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.contact-left a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-left a:hover {
+    color: orange;
+}
+
+.contact-left svg,
+.contact-right svg {
+    flex-shrink: 0;
+    transition: transform 0.3s, fill 0.3s;
+}
+
+.contact-left p:hover svg,
+.contact-right p:hover svg {
+    transform: scale(1.3) rotate(10deg);
+    fill: orange;
+}
+
+.contact-left p:hover,
+.contact-right p:hover {
+    transform: translateX(5px);
+}
+
+#contact::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 140, 0, 0.1) 0%, transparent 70%);
+    top: -50px;
+    left: -50%;
+    transform: rotate(30deg);
+    z-index: 0;
+}
+
+/* ====== Footer ====== */
+footer {
+    background: #222;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: orange;
+}
+
+/* ====== Animations ====== */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 992px) {
+    .services li {
+        width: 48%;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-left: 30px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .services li {
+        width: 80%;
+        height: auto;
+    }
+
+    .services img {
+        height: 200px;
+    }
+
+    .slides img {
+        width: 80%;
+        height: 40vh;
+    }
+
+    .slider button {
+        padding: 10px 15px;
+        font-size: 18px;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .nav {
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+        padding: 0 20px;
+    }
+
+    .nav.open {
+        max-height: 300px;
+        opacity: 1;
+        padding: 20px;
+        pointer-events: auto;
+    }
+
+    .services {
+        flex-direction: column;
+    }
+
+    #about h2 {
+        font-size: 28px;
+    }
+
+    #about p {
+        font-size: 18px;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .contact-left p,
+    .contact-right p {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .services li {
+        width: 95%;
+    }
+
+    .services img {
+        height: 180px;
+    }
+
+    .slides img {
+        width: 90%;
+    }
+}

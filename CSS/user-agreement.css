@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background-color: #1a1a1a;
+    color: #f9f9f9;
+}
+
+
+/* ======= шапка ========== */
+.agreement-header {
+    background-color: #222;
+    color: white;
+    padding: 20px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    /* расстояние между столбцами */
+    max-width: 1200px;
+    margin: auto;
+}
+
+.header-logo img {
+    height: 80px;
+    width: auto;
+}
+
+.header-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header-column p {
+    margin: 2px 0;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .header-logo img {
+        height: 60px;
+    }
+}
+
+.agreement-title-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 30px auto 20px auto;
+    position: relative;
+}
+
+.agreement-title-center {
+    text-align: center;
+}
+
+.agreement-title-center h2 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.agreement-title-center p {
+    margin: 5px 0 0;
+    font-weight: bold;
+}
+
+.agreement-date {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.agreement-date p {
+    margin: 0;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .agreement-title-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .agreement-date {
+        position: static;
+        margin-top: 10px;
+    }
+}
+
+/* ======== база ========= */
+main {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: #f9f9f9;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+section h2 {
+    color: #f9f9f9;
+    margin-bottom: 10px;
+}
+
+section p {
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
